@@ -1,8 +1,8 @@
 /// <reference path="../typings/all.d.ts" />
 
-import App from './app';
-import React from "react";
 
+import React from "react";
+import App from './app';
 React.render(
       <App />,
       document.body
