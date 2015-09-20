@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "path": "SET PATH=%PATH%;D:/jsdripGit/Jsdrip/node_modules/.bin",
+    "dev-server": "path && webpack-dev-server --config webpack/webpack.config.js --progress --colors --port 3000 --inline"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
     "webpack-dev-server": "^1.11.0"
   },
   "dependencies": {
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "react-redux": "^2.1.2",
+    "redux": "^3.0.0"
   }
 }
