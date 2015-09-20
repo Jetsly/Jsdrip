@@ -6,7 +6,7 @@
   "scripts": {
     "path": "SET PATH=%PATH%;D:/jsdripGit/Jsdrip/node_modules/.bin",
     "dev-server": "path && webpack-dev-server --config webpack/webpack.config.js --progress --colors --port 3000 --inline",
-    "tsd":"path && tsd " 
+    "tsd": "path && tsd "
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,6 @@
     "awesome-typescript-loader": "^0.14.0",
     "react-hot-loader": "^1.3.0",
     "tsd": "^0.6.4",
-    "typescript": "^1.6.2",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.11.0"
   },
