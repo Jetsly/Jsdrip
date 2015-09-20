@@ -1,6 +1,6 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../typings/all.d.ts" />
 
-import * as React from "react";
+import React from "react";
 
 export class App extends React.Component<any, any> {
 	 render(){
