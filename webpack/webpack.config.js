@@ -18,7 +18,7 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.ts','.tsx']
+    extensions: ['','.tsx']
   },
   resolveLoader: {
     modulesDirectories: ['node_modules']
@@ -26,8 +26,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.ts$/,
-        loaders: ['react-hot', 'awesome-typescript-loader']
+        test: /\.tsx$/,
+        loaders: ['awesome-typescript-loader','react-hot']
       }
     ]
   }
