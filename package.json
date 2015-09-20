@@ -1,0 +1,27 @@
+{
+  "name": "jsdrip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jetsly/Jsdrip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jetsly/Jsdrip/issues"
+  },
+  "homepage": "https://github.com/Jetsly/Jsdrip#readme",
+  "devDependencies": {
+    "typescript": "^1.6.2",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.11.0"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
