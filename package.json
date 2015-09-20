@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "path": "SET PATH=%PATH%;D:/jsdripGit/Jsdrip/node_modules/.bin",
-    "dev-server": "path && webpack-dev-server --config webpack/webpack.config.js --progress --colors --port 3000 --inline"
+    "dev-server": "path && webpack-dev-server --config webpack/webpack.config.js --progress --colors --port 3000 --inline",
+    "tsd":"path && tsd " 
   },
   "repository": {
     "type": "git",
