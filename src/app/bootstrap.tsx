@@ -1,9 +1,15 @@
 /// <reference path="../typings/all.d.ts" />
 
 
-import React from "react";
-import App from './app';
+import * as React from "react"
+class App extends React.Component<any, any> {
+	 render(){
+		return (
+            <div>dsa</div>
+        );
+	 }
+}
 React.render(
-      <App />,
-      document.body
+    <App/>,
+    document.body
 );

@@ -11,15 +11,13 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: '/static/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
-  resolve: {
-    extensions: ['','.tsx']
-  },
   resolveLoader: {
     modulesDirectories: ['node_modules']
   },
@@ -27,7 +25,7 @@ module.exports = {
     loaders: [
       {
         test: /\.tsx$/,
-        loaders: ['awesome-typescript-loader','react-hot']
+        loaders: ['react-hot','awesome-typescript-loader']
       }
     ]
   }
