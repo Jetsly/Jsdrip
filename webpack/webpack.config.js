@@ -7,7 +7,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/app/bootstrap.ts'
+    './src/app/bootstrap.tsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -18,7 +18,7 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.ts']
+    extensions: ['', '.js', '.ts','.tsx']
   },
   resolveLoader: {
     modulesDirectories: ['node_modules']
