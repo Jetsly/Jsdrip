@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "path": "SET PATH=%PATH%;D:/jsdripGit/Jsdrip/node_modules/.bin",
+    "path": "win.bat",
     "dev": "path && webpack-dev-server --config webpack/webpack.config.js --progress --colors --port 3000 --inline",
     "tsd": "path && tsd "
   },
