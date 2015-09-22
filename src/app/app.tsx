@@ -3,8 +3,10 @@ import * as React from "react"
 
 export class App extends React.Component<any, any> {
 	 render(){
+		let a=[2];
+		let b=[...a,2,3]
 		return (
-            <div>dsa</div>
+            <div>{b}</div>
         );
 	 }
 }
