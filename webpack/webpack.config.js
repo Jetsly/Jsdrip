@@ -21,6 +21,9 @@ module.exports = {
   resolveLoader: {
     modulesDirectories: ['node_modules']
   },
+  resolve: {
+     extensions: ['','.js','.tsx']
+  },
   module: {
     loaders: [
       {
