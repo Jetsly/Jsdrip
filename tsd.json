@@ -8,9 +8,6 @@
     "react/react.d.ts": {
       "commit": "a7cf77bd10fb07b77d16b966d7718055252ddf13"
     },
-    "react-router/react-router.d.ts": {
-      "commit": "947dd5063b9fbfdc6eb74c77ab03a5b539ebc541"
-    },
     "lodash/lodash.d.ts": {
       "commit": "285e6b692a5898ccc1dc19475187429deafb69d7"
     }

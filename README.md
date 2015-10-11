@@ -6,8 +6,8 @@ jsdrip/
  ├──src/                                   * our source files that will be compiled to javascript
  │   │
  │   ├──app/                               * WebApp: folder
- │   │   ├──app.ts                         * App.ts: a simple version of our App component components
- │   │   └──bootstrap.ts                   * entry file for app
+ │   │   ├──app.tsx                        * App.ts: a simple version of our App component components
+ │   │   └──bootstrap.tsx                  * entry file for app
  │   │
  │   ├──bindings/                          * where common files used throughout our app
  │   │   ├──location_bindings.ts           * injectables to change the Router location Strategy
