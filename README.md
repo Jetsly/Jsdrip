@@ -45,3 +45,4 @@ jsdrip/
 * [react-ts-boilerplate](https://github.com/Keats/react-ts-boilerplate)
 * [angular2-webpack-starter](https://github.com/angular-class/angular2-webpack-starter)
 * [tsd](http://definitelytyped.org/tsd/)
+* [semantic-ui](http://semantic-ui.com/)
