@@ -6,8 +6,8 @@ jsdrip/
  ├──src/                                   * our source files that will be compiled to javascript
  │   │
  │   ├──app/                               * WebApp: folder
- │   │   ├──app.tsx                        * App.ts: a simple version of our App component components
- │   │   └──bootstrap.tsx                  * entry file for app
+ │   │   ├──app.ts                         * App.ts: a simple version of our App component components
+ │   │   └──bootstrap.ts                   * entry file for app
  │   │
  │   ├──bindings/                          * where common files used throughout our app
  │   │   ├──location_bindings.ts           * injectables to change the Router location Strategy
@@ -42,7 +42,7 @@ jsdrip/
  └──webpack.config.js                      * our webpack config
 ```
 ## 相关
-* [react-ts-boilerplate](https://github.com/Keats/react-ts-boilerplate)
 * [angular2-webpack-starter](https://github.com/angular-class/angular2-webpack-starter)
 * [tsd](http://definitelytyped.org/tsd/)
 * [semantic-ui](http://semantic-ui.com/)
+* [wallaby](http://wallabyjs.com/)
