@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var jade = require('gulp-jade');
 var sourcemaps = require("gulp-sourcemaps");
-var webpack = require('webpack-stream');
+var wpstream = require('webpack-stream');
 var concat = require("gulp-concat");
 var gls = require('gulp-live-server');
 
@@ -24,7 +24,7 @@ gulp.task('templates', function() {
 gulp.task('scripts', function () {
     return gulp.src("src/app/bootstrap.ts")
     .pipe(sourcemaps.init())
-    .pipe(webpack(require('./webpack.config.js')))
+    .pipe(wpstream(require('./webpack.config.js')))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/script"));
 });

@@ -16,7 +16,8 @@ var pkg = require('./package.json');
 var path = require('path');
 
 // NPM
-var webpack = require('webpack');
+var webpack = require('webpack-stream').webpack;
+
 
 // Webpack Plugins
 var OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;
