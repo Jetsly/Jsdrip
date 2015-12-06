@@ -1,8 +1,9 @@
+var path = require('path');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var jade = require('gulp-jade');
 var sourcemaps = require("gulp-sourcemaps");
-var babel = require("gulp-babel");
+var webpack = require('webpack-stream');
 var concat = require("gulp-concat");
 var gls = require('gulp-live-server');
 
@@ -21,12 +22,75 @@ gulp.task('templates', function() {
 });
 
 gulp.task('scripts', function () {
-    return gulp.src("src/app/bootstrap.js")
+    return gulp.src("src/app/bootstrap.ts")
     .pipe(sourcemaps.init())
-    .pipe(babel({
-           presets: ['es2015',"stage-0"]
+    .pipe(webpack({
+        devtool: 'source-map',
+        debug: true,
+        cache: true,
+      
+        verbose: true,
+        displayErrorDetails: true,
+        context: __dirname,
+        stats: {
+          colors: true,
+          reasons: true
+        },
+        watch: true,
+        entry:{
+          'angular2': [
+              // Angular 2 Deps
+              '@reactivex/rxjs',
+              'zone.js',
+              'reflect-metadata',
+              // to ensure these modules are grouped together in one file
+              'angular2/angular2',
+              'angular2/core',
+              'angular2/router',
+              'angular2/http'
+            ],
+          'app': [
+            "src/app/bootstrap.ts"
+          ]  
+        },
+        // Config for our build files
+        output: {
+          path: path.join(__dirname, 'dist/assets/js'), 
+          filename: '[name].js',
+          sourceMapFilename: '[name].js.map',
+          chunkFilename: '[id].chunk.js'
+          // publicPath: 'http://mycdn.com/'
+        },      
+        resolve: {
+          root: __dirname,
+          extensions: ['','.ts','.js','.json'],
+          alias: {
+            'rxjs': path.join(__dirname,'node_modules/@reactivex/rxjs/src')
+            // 'common': 'src/common',
+            // 'bindings': 'src/bindings',
+            // 'components': 'src/app/components'
+            // 'services': 'src/app/services',
+            // 'stores': 'src/app/stores'
+          }
+        },
+        module: {
+          loaders: [
+            { 
+              test: /\.ts$/,   
+              loader: 'ts',
+              exclude: [
+                /\.min\.js$/,
+                /\.spec\.ts$/,
+                /\.e2e\.ts$/,
+                /node_modules/
+              ]}
+          ]
+        },
+        noParse: [
+          /rtts_assert\/src\/rtts_assert/,
+          /reflect-metadata/
+        ]        
      }))
-    .pipe(concat("all.js"))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/script"));
 });
