@@ -9,15 +9,15 @@ var tsProject ={
     sortOutput: true,
     declarationFiles: true,
     noExternalResolve: false,
-    //emitDecoratorMetadata: true,
+    emitDecoratorMetadata: true,
     //declaration: false,
-    //noImplicitAny: false,
-    //removeComments: true,
+    noImplicitAny: true,
+    removeComments: true,
     //noLib: false,
     // use SystemJS to build your files to es5 with System.register wrapper
     //target: 'ES6'
     target: 'ES5',
-    module: 'amd'  // commonjs (for Node) or amd (eg RequireJS for web)
+    module: 'commonjs'  // commonjs (for Node) or amd (eg RequireJS for web)
 }
 gulp.task('styles', function () {
   gulp.src('src/styles/**/*.scss')
