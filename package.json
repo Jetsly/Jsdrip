@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jetsly/Jsdrip.git"
@@ -30,9 +28,9 @@
     "webpack-stream": "^2.3.0"
   },
   "dependencies": {
-    "@reactivex/rxjs": "^5.0.0-alpha.12",
     "angular2": "^2.0.0-alpha.48",
     "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-alpha.12",
     "zone.js": "^0.5.8"
   }
 }
