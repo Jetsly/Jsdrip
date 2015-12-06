@@ -1,9 +1,6 @@
-/// <reference path="../../typings/angular2/angular2.d.ts" />
-/*
- * Providers provided by Angular
- */
-import {bootstrap, FORM_PROVIDERS, ELEMENT_PROBE_PROVIDERS} from 'angular2/angular2';
-
+import {
+  bootstrap
+} from 'angular2/angular2';
 /*
  * App Component
  * our top level component that holds all of our components

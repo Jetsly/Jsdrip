@@ -19,13 +19,16 @@
   },
   "homepage": "https://github.com/Jetsly/Jsdrip#readme",
   "devDependencies": {
+    "babel-plugin-angular2-annotations": "^2.0.1",
+    "babylon": "^6.3.14",
     "eslint": "^1.10.3",
     "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-concat": "^2.6.0",
     "gulp-jade": "^1.1.0",
     "gulp-live-server": "0.0.29",
     "gulp-sass": "^2.1.0",
-    "gulp-typescript": "^2.10.0",
-    "typescript": "^1.7.3"
+    "gulp-sourcemaps": "^1.6.0"
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.48"

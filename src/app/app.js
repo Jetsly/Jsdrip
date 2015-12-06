@@ -1,7 +1,3 @@
-/// <reference path="../../typings/angular2/angular2.d.ts" />
-/*
- * Angular 2 decorators and services
- */
 import {Component, bootstrap, View} from "angular2/angular2";
 // Annotation section
 @Component({

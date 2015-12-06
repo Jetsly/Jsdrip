@@ -1,24 +1,12 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var jade = require('gulp-jade');
-var ts = require('gulp-typescript');
+var sourcemaps = require("gulp-sourcemaps");
+var babel = require("gulp-babel");
+var concat = require("gulp-concat");
 var gls = require('gulp-live-server');
 
-var tsProject ={
-    typescript: require('typescript'),
-    sortOutput: true,
-    declarationFiles: true,
-    noExternalResolve: false,
-    emitDecoratorMetadata: true,
-    //declaration: false,
-    noImplicitAny: true,
-    removeComments: true,
-    //noLib: false,
-    // use SystemJS to build your files to es5 with System.register wrapper
-    //target: 'ES6'
-    target: 'ES5',
-    module: 'commonjs'  // commonjs (for Node) or amd (eg RequireJS for web)
-}
+
 gulp.task('styles', function () {
   gulp.src('src/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -33,11 +21,12 @@ gulp.task('templates', function() {
 });
 
 gulp.task('scripts', function () {
-    return gulp.src('src/app/**/*.ts')
-        .pipe(ts(tsProject,{
-            out: 'main.js'
-        }, ts.reporter.longReporter()))
-        .pipe(gulp.dest('dest/scripts'));
+    return gulp.src("src/app/bootstrap.js")
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(concat("all.js"))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("dist"));
 });
 
 gulp.task('serve', ['styles', 'scripts', 'templates'], function() {
