@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "path": "win.bat",
-    "dev": "path && webpack-dev-server --config webpack/webpack.config.js --progress --colors --port 3000 --inline",
-    "tsd": "path && tsd "
+    
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jetsly/Jsdrip.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jetsly@live.cn",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Jetsly/Jsdrip/issues"
   },
