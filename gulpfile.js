@@ -10,33 +10,35 @@ var gls = require('gulp-live-server');
 gulp.task('styles', function () {
   gulp.src('src/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('dest/css'));
+    .pipe(gulp.dest('dist/css'));
 });
 
  
 gulp.task('templates', function() {
   gulp.src('src/layouts/*.jade')
     .pipe(jade({}))
-    .pipe(gulp.dest('dest'))
+    .pipe(gulp.dest('dist'))
 });
 
 gulp.task('scripts', function () {
     return gulp.src("src/app/bootstrap.js")
     .pipe(sourcemaps.init())
-    .pipe(babel())
+    .pipe(babel({
+           presets: ['es2015',"stage-0"]
+     }))
     .pipe(concat("all.js"))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest("dist/script"));
 });
 
 gulp.task('serve', ['styles', 'scripts', 'templates'], function() {
-  var server = gls.static('dest', 8888);
+  var server = gls.static('dist', 8888);
   server.start();
   gulp.watch('src/styles/**/*.scss', ['styles']);
   gulp.watch('src/app/**/*.ts', ['scripts']);
   gulp.watch('src/layouts/*.jade', ['templates']);
 
-  gulp.watch(['dest/*'], function (file) {
+  gulp.watch(['dist/*'], function (file) {
     server.notify.apply(server, [file]);
   });
 });
