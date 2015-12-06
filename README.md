@@ -47,3 +47,4 @@ jsdrip/
 * [tsd](http://definitelytyped.org/tsd/)
 * [semantic-ui](http://semantic-ui.com/)
 * [wallaby](http://wallabyjs.com/)
+* [jade](http://jade-lang.com/reference/attributes/)
