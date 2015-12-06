@@ -36,7 +36,7 @@ gulp.task('serve', ['styles','scripts','templates'], function() {
   gulp.watch('src/app/**/*.ts', ['scripts']);
   gulp.watch('src/layouts/*.jade', ['templates']);
 
-  gulp.watch(['dist/*'], function (file) {
+  gulp.watch(['dist/**/*'], function (file) {
     server.notify.apply(server, [file]);
   });
 });
