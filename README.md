@@ -43,6 +43,7 @@ jsdrip/
 ```
 ## 相关
 * [angular2-webpack-starter](https://github.com/angular-class/angular2-webpack-starter)
+* [angular2-gulp-starterpack](https://github.com/kaadash/angular2-gulp-starterpack)
 * [tsd](http://definitelytyped.org/tsd/)
 * [semantic-ui](http://semantic-ui.com/)
 * [wallaby](http://wallabyjs.com/)
