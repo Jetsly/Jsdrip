@@ -26,7 +26,7 @@ gulp.task('scripts', function () {
     .pipe(sourcemaps.init())
     .pipe(wpstream(require('./webpack.config.js')))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("dist/script"));
+    .pipe(gulp.dest("dist/scripts"));
 });
 
 gulp.task('serve', ['styles','scripts','templates'], function() {
