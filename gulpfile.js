@@ -4,7 +4,21 @@ var jade = require('gulp-jade');
 var ts = require('gulp-typescript');
 var gls = require('gulp-live-server');
 
-
+var tsProject ={
+    typescript: require('typescript'),
+    sortOutput: true,
+    declarationFiles: true,
+    noExternalResolve: false,
+    //emitDecoratorMetadata: true,
+    //declaration: false,
+    //noImplicitAny: false,
+    //removeComments: true,
+    //noLib: false,
+    // use SystemJS to build your files to es5 with System.register wrapper
+    //target: 'ES6'
+    target: 'ES5',
+    module: 'amd'  // commonjs (for Node) or amd (eg RequireJS for web)
+}
 gulp.task('styles', function () {
   gulp.src('src/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -20,11 +34,9 @@ gulp.task('templates', function() {
 
 gulp.task('scripts', function () {
     return gulp.src('src/app/**/*.ts')
-        .pipe(ts({
-            typescript: require('typescript'),
-            noImplicitAny: true,
+        .pipe(ts(tsProject,{
             out: 'main.js'
-        }))
+        }, ts.reporter.longReporter()))
         .pipe(gulp.dest('dest/scripts'));
 });
 

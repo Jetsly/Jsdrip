@@ -1,3 +1,4 @@
+/// <reference path="../../typings/angular2/angular2.d.ts" />
 /*
  * Providers provided by Angular
  */
