@@ -8,20 +8,20 @@ var concat = require("gulp-concat");
 var gls = require('gulp-live-server');
 
 
-gulp.task('styles', function () {
+gulp.task('styles', ()=>{
   gulp.src('src/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist/css'));
 });
 
  
-gulp.task('templates', function() {
+gulp.task('templates', ()=>{
   gulp.src('src/layouts/*.jade')
     .pipe(jade({}))
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', ()=>{
     return gulp.src("src/app/bootstrap.ts")
     .pipe(sourcemaps.init())
     .pipe(wpstream(require('./webpack.config.js')))
@@ -29,14 +29,14 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest("dist/scripts"));
 });
 
-gulp.task('serve', ['styles','scripts','templates'], function() {
+gulp.task('serve', ['styles','scripts','templates'],()=>{
   var server = gls.static('dist', 8888);
   server.start();
   gulp.watch('src/styles/**/*.scss', ['styles']);
   gulp.watch('src/app/**/*.ts', ['scripts']);
   gulp.watch('src/layouts/*.jade', ['templates']);
 
-  gulp.watch(['dist/**/*'], function (file) {
+  gulp.watch(['dist/**/**'], file=>{
     server.notify.apply(server, [file]);
   });
 });
