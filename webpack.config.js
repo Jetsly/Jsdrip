@@ -55,17 +55,6 @@ module.exports = {
 
   //
   entry: {
-    'angular2': [
-      // Angular 2 Deps
-      '@reactivex/rxjs',
-      'zone.js',
-      'reflect-metadata',
-      // to ensure these modules are grouped together in one file
-      'angular2/angular2',
-      'angular2/core',
-      'angular2/router',
-      'angular2/http'
-    ],
     'app': [
       './src/app/bootstrap'
     ]
@@ -82,15 +71,7 @@ module.exports = {
 
   resolve: {
     root: __dirname,
-    extensions: ['','.ts','.js','.json'],
-    alias: {
-      'rx': '@reactivex/rxjs'
-      // 'common': 'src/common',
-      // 'bindings': 'src/bindings',
-      // 'components': 'src/app/components'
-      // 'services': 'src/app/services',
-      // 'stores': 'src/app/stores'
-    }
+    extensions: ['','.ts','.js','.json']
   },
 
   module: {
@@ -111,10 +92,7 @@ module.exports = {
         ]
       }
     ],
-    noParse: [
-      /rtts_assert\/src\/rtts_assert/,
-      /reflect-metadata/
-    ]
+    noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/ ]
   },
 
   plugins: [
@@ -124,11 +102,6 @@ module.exports = {
     }),
     new OccurenceOrderPlugin(),
     new DedupePlugin(),
-    new CommonsChunkPlugin({
-      name: 'angular2',
-      minChunks: Infinity,
-      filename: 'angular2.js'
-    }),
     new CommonsChunkPlugin({
       name: 'common',
       filename: 'common.js'
