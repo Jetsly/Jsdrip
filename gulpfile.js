@@ -24,7 +24,7 @@ gulp.task('templates', ()=>{
 gulp.task('scripts', ()=>{
     return gulp.src("src/app/bootstrap.ts")
     .pipe(sourcemaps.init())
-    .pipe(wpstream(require('./webpack.config.js')))
+    .pipe(wpstream(require('./webpack.config.babel.js')))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/scripts"));
 });

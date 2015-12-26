@@ -44,20 +44,10 @@ module.exports = {
     reasons: true
   },
 
-  // our Development Server config
-  devServer: {
-    inline: true,
-    colors: true,
-    historyApiFallback: true,
-    contentBase: 'src/public',
-    publicPath: '/dist'
-  },
-
   //
   entry: {
-    'app': [
-      './src/app/bootstrap'
-    ]
+     'vendor': './src/vendor.ts',
+     'app': './src/bootstrap.ts' // our angular app
   },
 
   // Config for our build files
