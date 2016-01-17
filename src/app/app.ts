@@ -10,6 +10,6 @@ import {Component, View} from "angular2/core";
 export class App {
   name: string;
   constructor() {
-    this.name = 'Alsssssssce';
+    this.name = 'Alssssseeessce';
   }
 }

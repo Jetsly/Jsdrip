@@ -13,8 +13,7 @@
     "outDir": "dist"
   },
   "files": [
-    "src/bootstrap.ts",
-    "src/vendor.ts",
-    "src/polyfills.ts"
+    "src/main.ts",
+    "src/vendor.ts"
   ]
 }
