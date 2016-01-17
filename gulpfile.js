@@ -10,7 +10,9 @@ var gls = require('gulp-live-server');
 
 gulp.task('styles', ()=>{
   gulp.src('src/styles/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest('dist/css'));
 });
 
