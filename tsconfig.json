@@ -10,12 +10,10 @@
   },
   "files": [
     "src/main.ts",
-    "src/vendor.ts",
-    "typings/main.d.ts"
+    "src/vendor.ts"
   ],
   "filesGlob": [
-    "./src/**/*.ts",
-    "!./node_modules/**/*.ts"
+    "./src/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false
