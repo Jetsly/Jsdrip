@@ -17,7 +17,7 @@ import {About} from './about/about';
     {path: '/**', redirectTo: ['Index']}
 ])
 @View({
-    template:  require("jade!./app.jade")
+    template: require('raw!./app.html')
 })
 export class App {
     name = 'World';

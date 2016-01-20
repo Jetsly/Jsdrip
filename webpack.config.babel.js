@@ -61,29 +61,23 @@ module.exports = {
 
   resolve: {
     root: __dirname,
-    extensions: ['','.ts','.js','.json','.jade']
+    extensions: ['','.ts','.js','.json','.css','.html']
   },
 
   module: {
     loaders: [
-      { test: /\.jade$/, loader: "jade-loader" },
+      // Support for CSS as raw text
+      { test: /\.css$/,   loader: 'raw-loader' },
+
+      // support for .html as raw text
+      { test: /\.html$/,  loader: 'raw-loader' },
+      { test: /\.html$/,  loader: 'raw-loader' },
       // Support for .ts files.
-      { test: /\.ts$/,    loader: 'ts',
-        query: {
-          'ignoreDiagnostics': [
-            // 2300, // 2300 -> Duplicate identifier
-            // 2309 // 2309 -> An export assignment cannot be used in a module with other exported elements.
-          ]
-        },
-        exclude: [
-          /\.min\.js$/,
-          /\.spec\.ts$/,
-          /\.e2e\.ts$/,
-          /node_modules/
-        ]
+      {
+        test: /\.ts$/,    loader: 'ts',
+        exclude: [ /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/ ]
       }
-    ],
-    noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/ ]
+    ]
   },
 
   plugins: [
