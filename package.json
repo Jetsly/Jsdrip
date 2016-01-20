@@ -24,8 +24,11 @@
     "gulp-live-server": "0.0.29",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
+    "jade": "^1.11.0",
+    "jade-loader": "^0.8.0",
     "ts-loader": "^0.7.2",
     "typescript": "^1.7.3",
+    "typings": "^0.6.2",
     "webpack-stream": "^2.3.0"
   },
   "dependencies": {

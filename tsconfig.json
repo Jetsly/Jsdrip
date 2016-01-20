@@ -2,18 +2,21 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "declaration": false,
-    "noImplicitAny": false,
     "removeComments": true,
-    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "listFiles": false,
-    "outDir": "dist"
+    "noEmitHelpers": false,
+    "sourceMap": true
   },
   "files": [
     "src/main.ts",
-    "src/vendor.ts"
-  ]
+    "src/vendor.ts",
+    "typings/main.d.ts"
+  ],
+  "filesGlob": [
+    "./src/**/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }

@@ -1,15 +1,26 @@
-import {Component, View} from "angular2/core";
-// Annotation section
+import {Component,View} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+
+import {Index} from './index/index';
+import {About} from './about/about';
+/*
+ * App Component
+ * Top Level Component
+ */
 @Component({
-  selector: 'my-app'
+    selector: 'app',
+    directives: [ROUTER_DIRECTIVES]
 })
+@RouteConfig([
+    {path: '/', component: Index, name: 'Index'},
+    {path: '/about', component: About, name: 'About'},
+    {path: '/**', redirectTo: ['Index']}
+])
 @View({
-  template: '<h1>Hello {{ name }}</h1>'
+    template:  require("jade!./app.jade")
 })
-// Component controller
 export class App {
-  name: string;
-  constructor() {
-    this.name = 'Alssssseeessce';
-  }
+    name = 'World';
+    constructor() {
+    }
 }

@@ -61,11 +61,12 @@ module.exports = {
 
   resolve: {
     root: __dirname,
-    extensions: ['','.ts','.js','.json']
+    extensions: ['','.ts','.js','.json','.jade']
   },
 
   module: {
     loaders: [
+      { test: /\.jade$/, loader: "jade-loader" },
       // Support for .ts files.
       { test: /\.ts$/,    loader: 'ts',
         query: {
