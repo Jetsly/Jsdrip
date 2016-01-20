@@ -10,7 +10,27 @@ import {About} from './about/about';
 @Component({
     selector: 'app',
     directives: [ROUTER_DIRECTIVES],
-    template: require('raw!./app.html')
+    template: `
+    <header>
+      <nav>
+        <h1>Hello {{ name }}</h1>
+        <ul>
+          <li router-active="active">
+            <a [routerLink]=" ['Index'] ">Index</a>
+          </li>
+          <li router-active="active">
+            <a [routerLink]=" ['Home'] ">Home</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
+    </footer>
+  `
 })
 @RouteConfig([
     {path: '/', component: Index, name: 'Index'},
