@@ -2,7 +2,6 @@
 
 /*
  * Helper
- * env(), getBanner(), root(), and rootDir()
  * are defined at the bottom
  */
 var sliceArgs = Function.prototype.call.bind(Array.prototype.slice);
@@ -22,32 +21,30 @@ var webpack = require('webpack-stream').webpack;
 // Webpack Plugins
 var OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;
 var CommonsChunkPlugin   = webpack.optimize.CommonsChunkPlugin;
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var DedupePlugin   = webpack.optimize.DedupePlugin;
 var DefinePlugin   = webpack.DefinePlugin;
-var BannerPlugin   = webpack.BannerPlugin;
 
+var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
+var metadata = {
+  title: 'Angular2 Webpack Starter by @gdi2990 from @AngularClass',
+  baseUrl: '/',
+  host: 'localhost',
+  port: 3000,
+  ENV: ENV
+};
 /*
  * Config
  */
 module.exports = {
+  // static data for index.html
+  metadata: metadata,
+  // for faster builds use 'eval'
   devtool: 'source-map',
   debug: true,
-  cache: true,
-
-  verbose: true,
-  displayErrorDetails: true,
-  context: __dirname,
-  stats: {
-    colors: true,
-    reasons: true
-  },
-
   //
   entry: {
-     'vendor': './src/vendor.ts',
-     'app': './src/main.ts' // our angular app
+    'vendor': './src/vendor.ts',
+    'main': './src/main.ts' // our angular app
   },
 
   // Config for our build files
@@ -81,50 +78,22 @@ module.exports = {
   },
 
   plugins: [
+    new OccurenceOrderPlugin(true),
+    new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity }),
     new DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
-      'VERSION': JSON.stringify(pkg.version)
-    }),
-    new OccurenceOrderPlugin(),
-    new DedupePlugin(),
-    new CommonsChunkPlugin({
-      name: 'common',
-      filename: 'common.js'
+      'process.env': {
+        'ENV': JSON.stringify(metadata.ENV),
+        'NODE_ENV': JSON.stringify(metadata.ENV)
+      }
     })
   ],
 
-  /*
-   * When using `templateUrl` and `styleUrls` please use `__filename`
-   * rather than `module.id` for `moduleId` in `@View`
-   */
-  node: {
-    crypto: false,
-    __filename: true
-  }
+  // we need this due to problems with es6-shim
+  node: {global: 'window', progress: false, crypto: 'empty', module: false, clearImmediate: false, setImmediate: false}
 };
 
-// Helper functions
-
-function env(configEnv) {
-  if (configEnv === undefined) { return configEnv; }
-  switch (toString(configEnv[NODE_ENV])) {
-    case '[object Object]'    : return Object.assign({}, configEnv.all || {}, configEnv[NODE_ENV]);
-    case '[object Array]'     : return [].concat(configEnv.all || [], configEnv[NODE_ENV]);
-    case '[object Undefined]' : return configEnv.all;
-    default                   : return configEnv[NODE_ENV];
-  }
-}
-
-function getBanner() {
-  return 'Angular2 Webpack Starter v'+ pkg.version +' by @gdi2990 from @AngularClass';
-}
 
 function root(args) {
   args = sliceArgs(arguments, 0);
   return path.join.apply(path, [__dirname].concat(args));
-}
-
-function rootNode(args) {
-  args = sliceArgs(arguments, 0);
-  return root.apply(path, ['node_modules'].concat(args));
 }
