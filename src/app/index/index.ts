@@ -4,7 +4,7 @@ import {Component,View} from 'angular2/core';
     selector: 'index'
 })
 @View({
-    //template: require('./index.html')
+    template: require('./index.html')
 })
 export class Index {
     constructor() {

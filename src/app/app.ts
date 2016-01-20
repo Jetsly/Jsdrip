@@ -19,7 +19,7 @@ import {About} from './about/about';
             <a [routerLink]=" ['Index'] ">Index</a>
           </li>
           <li router-active="active">
-            <a [routerLink]=" ['Home'] ">Home</a>
+            <a [routerLink]=" ['About'] ">About</a>
           </li>
         </ul>
       </nav>
