@@ -58,20 +58,16 @@ module.exports = {
 
   resolve: {
     root: __dirname,
-    extensions: ['','.ts','.js','.json','.css','.html']
+    extensions: ['','.ts','.js','.jade']
   },
 
   module: {
     loaders: [
-      // Support for CSS as raw text
-      { test: /\.css$/,   loader: 'raw-loader' },
-      // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader' },
       // support for .jade as raw text
       { test: /\.jade$/,  loader: 'jade-loader' },
       // Support for .ts files.
       {
-        test: /\.ts$/,    loader: 'ts',
+        test: /\.ts$/,    loader: 'ts-loader',
         exclude: [ /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/ ]
       }
     ]
