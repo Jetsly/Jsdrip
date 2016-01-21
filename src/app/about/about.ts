@@ -1,9 +1,7 @@
 import {Component,View} from 'angular2/core';
 
 @Component({
-    selector: 'about'
-})
-@View({
+    selector: 'about',
     template: require('./about.html')
 })
 export class About {

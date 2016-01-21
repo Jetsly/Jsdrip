@@ -15,10 +15,10 @@ import {About} from './about/about';
       <nav>
         <h1>Hello {{ name }}</h1>
         <ul>
-          <li router-active="active">
+          <li>
             <a [routerLink]=" ['Index'] ">Index</a>
           </li>
-          <li router-active="active">
+          <li>
             <a [routerLink]=" ['About'] ">About</a>
           </li>
         </ul>
@@ -28,7 +28,6 @@ import {About} from './about/about';
       <router-outlet></router-outlet>
     </main>
     <footer>
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
     </footer>
   `
 })

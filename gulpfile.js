@@ -35,7 +35,7 @@ gulp.task('serve', ['styles','scripts','templates'],()=>{
   var server = gls.static('dist', 8888);
   server.start();
   gulp.watch('src/styles/**/*.scss', ['styles']);
-  gulp.watch('src/app/**/*.ts', ['scripts']);
+  gulp.watch('src/app/**/*.*', ['scripts']);
   gulp.watch('src/layouts/*.jade', ['templates']);
 
   gulp.watch(['dist/**/**'], file=>{

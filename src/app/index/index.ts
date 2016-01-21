@@ -1,4 +1,5 @@
-import {Component,View} from 'angular2/core';
+import {Component} from 'angular2/core';
+import {View} from "angular2/core";
 
 @Component({
     selector: 'index'
@@ -9,5 +10,8 @@ import {Component,View} from 'angular2/core';
 export class Index {
     constructor() {
 
+    }
+    ngOnInit() {
+        console.log('hello Home component');
     }
 }
