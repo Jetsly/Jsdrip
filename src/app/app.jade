@@ -1,0 +1,9 @@
+header
+  nav
+    h1!='Hello {{ name }}'
+    ul
+      li!= '<a [routerLink]=" [\'Index\'] ">Index</a>'
+      li!= '<a [routerLink]=" [\'About\'] ">About</a>'
+main
+  router-outlet
+footer

@@ -67,6 +67,8 @@ module.exports = {
       { test: /\.css$/,   loader: 'raw-loader' },
       // support for .html as raw text
       { test: /\.html$/,  loader: 'raw-loader' },
+      // support for .jade as raw text
+      { test: /\.jade$/,  loader: 'jade-loader' },
       // Support for .ts files.
       {
         test: /\.ts$/,    loader: 'ts',

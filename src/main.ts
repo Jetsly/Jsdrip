@@ -20,6 +20,6 @@ document.addEventListener('DOMContentLoaded', function main() {
   bootstrap(App, [
     ...('production' === process.env.ENV ? [] : ELEMENT_PROBE_PROVIDERS),
     ...ROUTER_PROVIDERS,
-    provide(LocationStrategy, { useClass: HashLocationStrategy })
+    provide(LocationStrategy, { useClass: PathLocationStrategy })
   ]).catch(err => console.error(err));
 });

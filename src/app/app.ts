@@ -10,26 +10,7 @@ import {About} from './about/about';
 @Component({
     selector: 'app',
     directives: [ROUTER_DIRECTIVES],
-    template: `
-    <header>
-      <nav>
-        <h1>Hello {{ name }}</h1>
-        <ul>
-          <li>
-            <a [routerLink]=" ['Index'] ">Index</a>
-          </li>
-          <li>
-            <a [routerLink]=" ['About'] ">About</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-    <footer>
-    </footer>
-  `
+    template: require('./app.jade')()
 })
 @RouteConfig([
     {path: '/', component: Index, name: 'Index'},

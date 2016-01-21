@@ -1,11 +1,10 @@
-import {Component} from 'angular2/core';
-import {View} from "angular2/core";
+import {Component,View} from 'angular2/core';
 
 @Component({
     selector: 'index'
 })
 @View({
-    template: require('./index.html')
+    template: require('./index.jade')()
 })
 export class Index {
     constructor() {
