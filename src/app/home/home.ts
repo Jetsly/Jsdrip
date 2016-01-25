@@ -1,12 +1,12 @@
 import {Component,View} from 'angular2/core';
 
 @Component({
-    selector: 'index'
+    selector: 'home'
 })
 @View({
-    template: require('./index.jade')()
+    template: require('./home.jade')()
 })
-export class Index {
+export class Home {
     constructor() {
 
     }

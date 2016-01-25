@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {Index} from './index/index';
+import {Home} from './home/home';
 import {About} from './about/about';
 /*
  * App Component
@@ -13,9 +13,9 @@ import {About} from './about/about';
     template: require('./app.jade')()
 })
 @RouteConfig([
-    {path: '/', component: Index, name: 'Index'},
+    {path: '/', component: Home, name: 'Home'},
     {path: '/about', component: About, name: 'About'},
-    {path: '/**', redirectTo: ['Index']}
+    {path: '/**', redirectTo: ['Home']}
 ])
 export class App {
     name = 'World';

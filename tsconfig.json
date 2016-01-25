@@ -9,6 +9,9 @@
     "sourceMap": true
   },
   "files": [
+    "src/app/home/home.ts",
+    "src/app/about/about.ts",
+    "src/app/app.ts",
     "src/main.ts",
     "src/vendor.ts"
   ],
