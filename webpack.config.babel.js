@@ -1,28 +1,8 @@
-// @AngularClass
-
 /*
- * Helper
- * are defined at the bottom
+ * Helper: defined at the bottom
  */
-var sliceArgs = Function.prototype.call.bind(Array.prototype.slice);
-var toString  = Function.prototype.call.bind(Object.prototype.toString);
-var NODE_ENV  = process.env.NODE_ENV || 'development';
-var pkg = require('./package.json');
-
-// Polyfill
-
-// Node
 var path = require('path');
-
-// NPM
 var webpack = require('webpack-stream').webpack;
-
-
-// Webpack Plugins
-var OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;
-var CommonsChunkPlugin   = webpack.optimize.CommonsChunkPlugin;
-var DefinePlugin   = webpack.DefinePlugin;
-
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 var metadata = {
@@ -43,40 +23,43 @@ module.exports = {
   debug: true,
   //
   entry: {
-    'vendor': './src/vendor.ts',
+    'polyfills': './src/polyfills.ts',
     'main': './src/main.ts' // our angular app
   },
 
   // Config for our build files
   output: {
     path: root('dist/scripts'),
-    filename: '[name].js',
-    sourceMapFilename: '[name].js.map',
+    filename: '[name].bundle.js',
+    sourceMapFilename: '[name].map',
     chunkFilename: '[id].chunk.js'
-    // publicPath: 'http://mycdn.com/'
   },
 
   resolve: {
-    root: __dirname,
     extensions: ['','.ts','.js','.jade']
   },
 
   module: {
+    preLoaders: [
+      // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ root('node_modules') ] },
+      // TODO(gdi2290): `exclude: [ root('node_modules/rxjs') ]` fixed with rxjs 5 beta.2 release
+      { test: /\.js$/, loader: "source-map-loader", exclude: [ root('node_modules/rxjs') ] }
+    ],
     loaders: [
       // support for .jade as raw text
       { test: /\.jade$/,  loader: 'jade-loader' },
+      // Support Angular 2 async routes via .async.ts
+      { test: /\.async\.ts$/, loaders: ['es6-promise-loader', 'ts-loader'], exclude: [ /\.(spec|e2e)\.ts$/ ] },
       // Support for .ts files.
-      {
-        test: /\.ts$/,    loader: 'ts-loader',
-        exclude: [ /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/ ]
-      }
+      { test: /\.ts$/, loader: 'ts-loader', exclude: [ /\.(spec|e2e|async)\.ts$/ ] }
     ]
   },
 
   plugins: [
-    new OccurenceOrderPlugin(true),
-    new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity }),
-    new DefinePlugin({
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity }),
+    // replace
+    new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(metadata.ENV),
         'NODE_ENV': JSON.stringify(metadata.ENV)
@@ -88,8 +71,8 @@ module.exports = {
   node: {global: 'window', progress: false, crypto: 'empty', module: false, clearImmediate: false, setImmediate: false}
 };
 
-
+// Helper functions
 function root(args) {
-  args = sliceArgs(arguments, 0);
+  args = Array.prototype.slice.call(arguments, 0);
   return path.join.apply(path, [__dirname].concat(args));
 }

@@ -1,10 +1,17 @@
 /*
  * Providers provided by Angular
  */
-import {provide} from 'angular2/core';
+import {provide,enableProdMode} from 'angular2/core';
 import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS, LocationStrategy,PathLocationStrategy, HashLocationStrategy} from 'angular2/router';
 
+const ENV_PROVIDERS = [];
+
+if ('production' === process.env.ENV) {
+  enableProdMode();
+// } else {
+}
+ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
 /*
  * App Component
  * our top level component that holds all of our components

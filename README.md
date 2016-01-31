@@ -1,5 +1,8 @@
 # Jsdrip
 
+## 错误信息
+1.  当显示ts重复的时候八`typings`文件夹干掉
+
 ## 相关
 * [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)
 * [jade](http://jade-lang.com/reference/attributes/)

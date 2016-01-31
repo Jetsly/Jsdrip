@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Jetsly/Jsdrip#readme",
   "devDependencies": {
+    "es6-promise-loader": "^1.0.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-jade": "^1.1.0",
@@ -27,16 +28,17 @@
     "gulp-sourcemaps": "^1.6.0",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
-    "ts-loader": "^0.7.2",
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^0.8.0",
     "typescript": "^1.7.3",
     "typings": "^0.6.2",
-    "webpack-stream": "^2.3.0"
+    "webpack-stream": "^3.1.0"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.1",
+    "angular2": "2.0.0-beta.2",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
-    "es7-reflect-metadata": "^1.4.0",
+    "es7-reflect-metadata": "^1.5.5",
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.10"
   }

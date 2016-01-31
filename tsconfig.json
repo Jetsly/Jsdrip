@@ -2,21 +2,21 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noEmitHelpers": false,
     "sourceMap": true
   },
-  "files": [
-    "src/app/home/home.ts",
-    "src/app/about/about.ts",
-    "src/app/app.ts",
-    "src/main.ts",
-    "src/vendor.ts"
+  "exclude": [
+    "node_modules",
+    "typings/main.d.ts",
+    "typings/main"
   ],
   "filesGlob": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./test/**/*.ts",
+    "!./node_modules/**/*.ts",
+    "src/custom_typings.d.ts",
+    "typings/browser.d.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false
