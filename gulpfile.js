@@ -30,8 +30,11 @@ gulp.task('scripts', ()=>{
 });
 
 gulp.task('serve', ['styles','scripts','templates'],()=>{
-  var server = gls.static('dist', 8888);
-  server.start();
+  var port=8888;
+  var server = gls.static('dist', port);
+  server.start().then(()=>{
+     console.log("http://localhost:",port)
+  });
   gulp.watch('src/styles/**/*.scss', ['styles']);
   gulp.watch(['src/app/**/*.*','src/*.ts'], ['scripts']);
   gulp.watch('src/layouts/*.jade', ['templates']);
@@ -39,6 +42,7 @@ gulp.task('serve', ['styles','scripts','templates'],()=>{
   gulp.watch(['dist/**/**'], file=>{
     server.notify.apply(server, [file]);
   });
+
 });
 
 gulp.task('default',['serve']);
