@@ -1,4 +1,8 @@
-body{
-  margin: 0;
-  padding: 0;
+@import "variable";
+@import "reset";
+@import "navigation";
+
+header,main,footer{
+  margin-left: 45px;
+  padding-left: 5px;
 }
