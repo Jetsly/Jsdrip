@@ -1,16 +1,17 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig,ROUTER_DIRECTIVES} from 'angular2/router';
 
+import {Navigation} from './navigation/navigation';
 import {Home} from './home/home';
 import {About} from './about/about';
-import {Navigation} from './navigation/navigation';
+
 /*
  * App Component
  * Top Level Component
  */
 @Component({
     selector: 'app',
-    directives: [ROUTER_DIRECTIVES,Navigation],
+    directives: [Navigation,ROUTER_DIRECTIVES],
     template: require('./app.jade')()
 })
 @RouteConfig([

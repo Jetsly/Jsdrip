@@ -9,9 +9,9 @@ const ENV_PROVIDERS = [];
 
 if ('production' === process.env.ENV) {
   enableProdMode();
-// } else {
+} else {
+  ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
 }
-ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
 /*
  * App Component
  * our top level component that holds all of our components
@@ -25,7 +25,7 @@ import {
  */
 document.addEventListener('DOMContentLoaded', function main() {
   bootstrap(App, [
-    ...('production' === process.env.ENV ? [] : ELEMENT_PROBE_PROVIDERS),
+    ...ENV_PROVIDERS,
     ...ROUTER_PROVIDERS,
     provide(LocationStrategy, { useClass: PathLocationStrategy })
   ]).catch(err => console.error(err));

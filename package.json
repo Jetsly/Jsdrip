@@ -29,17 +29,17 @@
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
     "source-map-loader": "^0.1.5",
-    "ts-loader": "^0.8.0",
-    "typescript": "^1.7.3",
-    "typings": "^0.6.2",
+    "ts-loader": "^0.8.1",
+    "typescript": "1.7.5",
+    "typings": "^0.6.7",
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.2",
+    "angular2": "2.0.0-beta.6",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
     "es7-reflect-metadata": "^1.5.5",
     "rxjs": "5.0.0-beta.0",
-    "zone.js": "0.5.10"
+    "zone.js": "0.5.14"
   }
 }

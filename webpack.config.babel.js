@@ -21,11 +21,9 @@ module.exports = {
   // for faster builds use 'eval'
   devtool: 'source-map',
   debug: true,
-  //
-  entry: {
-    'polyfills': './src/polyfills.ts',
-    'main': './src/main.ts' // our angular app
-  },
+
+  // our angular app
+  entry: { 'polyfills': './src/polyfills.ts', 'main': './src/main.ts' },
 
   // Config for our build files
   output: {
@@ -58,6 +56,8 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({ name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity }),
+    // static assets
+    //new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
     // replace
     new webpack.DefinePlugin({
       'process.env': {
