@@ -5,4 +5,11 @@
   left: 0;
   top: 0;
   height: 100%;
+  background: $black;
+  li{
+   padding: 5px 0;
+  }
+  a{
+    color: $white;
+  }
 }
